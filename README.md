@@ -150,9 +150,9 @@ Este proyecto es el resultado de la aplicación de las prácticas de Programaci�
 
 ## Equipo de Desarrollo
 
-*   José Antonio
-*   David
-*   José Manuel
+*   José Antonio García Hernández
+*   José David Aguilar Uribe
+*   José Manuel Evangelista Tiburcio
 
 ---
 
