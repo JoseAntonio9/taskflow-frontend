@@ -1,4 +1,4 @@
-/* src/App.css */
+/* Copied from frontend_styles.css */
 * {
   margin: 0;
   padding: 0;
@@ -395,4 +395,47 @@ body {
   color: #c62828;
 }
 
-.priority
+.priority-low {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.priority-medium {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.task-description {
+  color: #555;
+  margin: 6px 0 10px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 12px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.task-actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.error-message {
+  background: #fdecea;
+  color: #611a15;
+  border: 1px solid #f5c6cb;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 0;
+}
+
