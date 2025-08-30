@@ -1,0 +1,279 @@
+# README.md - Frontend
+
+# TaskFlow Frontend - Interfaz de Usuario React
+
+## Descripción
+Frontend para TaskFlow, desarrollado con React siguiendo la metodología Extreme Programming (XP).
+
+## Características Implementadas
+-  Autenticación completa (login/registro)
+-  Dashboard interactivo
+-  CRUD de tareas con interfaz moderna
+-  Estado local con Context API
+-  Diseño responsive y accesible
+-  Pruebas unitarias extensivas
+
+## Historias de Usuario Cubiertas
+
+### 1. Registro y Autenticación
+**Como usuario, quiero registrarme y autenticarme para acceder a mis tareas**
+- Formulario de registro con validaciones
+- Sistema de login con JWT
+- Manejo de errores y estados de carga
+- Persistencia de sesión
+
+### 2. Gestión de Tareas
+**Como usuario, quiero crear, editar y eliminar tareas para organizar mi trabajo**
+- Formulario modal para crear/editar tareas
+- Lista organizada de tareas pendientes y completadas
+- Campos: título, descripción, prioridad
+- Confirmación para eliminación
+
+### 3. Estado de Tareas
+**Como usuario, quiero marcar tareas como completadas para hacer seguimiento**
+- Checkbox interactivo para cambiar estado
+- Separación visual entre pendientes y completadas
+- Estadísticas en tiempo real
+
+## Tecnologías Utilizadas
+- **React 18.2.0** - Biblioteca principal
+- **React Router 6.3.0** - Navegación
+- **Axios 0.27.2** - Cliente HTTP
+- **CSS3** - Estilos personalizados
+- **Testing Library** - Pruebas unitarias
+
+## Instalación y Ejecución
+
+### Prerrequisitos
+- Node.js 16+
+- npm o yarn
+
+### Pasos
+1. Clonar el repositorio:
+```bash
+git clone <url-del-repositorio-frontend>
+cd taskflow-frontend
+```
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Configurar variables de entorno:
+```bash
+# Crear archivo .env.local
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+4. Ejecutar en modo desarrollo:
+```bash
+npm start
+```
+
+La aplicación estará disponible en `http://localhost:3000`
+
+## Scripts Disponibles
+- `npm start` - Ejecutar en modo desarrollo
+- `npm test` - Ejecutar pruebas unitarias
+- `npm run build` - Construir para producción
+- `npm run test:coverage` - Ejecutar pruebas con reporte de cobertura
+
+## Estructura del Proyecto
+```
+src/
+├── components/           # Componentes React
+│   ├── Login.js         # Formulario de login
+│   ├── Register.js      # Formulario de registro
+│   ├── Dashboard.js     # Vista principal
+│   ├── TaskForm.js      # Formulario de tareas
+│   ├── TaskList.js      # Lista de tareas
+│   ├── TaskItem.js      # Item individual de tarea
+│   └── __tests__/       # Pruebas unitarias
+├── contexts/            # Context API
+│   └── AuthContext.js   # Contexto de autenticación
+├── services/            # Servicios API
+│   └── api.js          # Cliente HTTP configurado
+├── App.js              # Componente principal
+├── App.css             # Estilos globales
+└── index.js            # Punto de entrada
+```
+
+## Pruebas Unitarias
+El proyecto incluye pruebas exhaustivas para:
+- Componentes de autenticación
+- Formularios de tareas
+- Context API
+- Integración con API
+
+Ejecutar pruebas:
+```bash
+npm test
+```
+
+Cobertura de pruebas:
+```bash
+npm run test:coverage
+```
+
+## Metodología XP Aplicada
+-  **Iteraciones cortas**: Desarrollo en 2 iteraciones
+-  **Pruebas unitarias**: Cobertura extensiva
+-  **Refactorización**: Código limpio y mantenible
+-  **Programación en pares**: Via pull requests
+-  **Diseño simple**: UI intuitiva y funcional
+
+## Características de Accesibilidad
+- Navegación por teclado
+- Labels apropiados para lectores de pantalla
+- Contraste de colores adecuado
+- Mensajes de error claros
+- Estados de carga informativos
+
+## Responsive Design
+- Diseño mobile-first
+- Breakpoints para tablet y desktop
+- Navegación adaptativa
+- Formularios optimizados para móvil
+
+---
+
+# .env.local - Frontend
+REACT_APP_API_URL=http://localhost:5000/api
+
+# .gitignore - Frontend
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Production
+/build
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+
+---
+
+# Documentación del Proyecto Completo
+
+## TaskFlow - Gestor de Tareas Personal
+Aplicación web desarrollada siguiendo Extreme Programming (XP)
+
+### Arquitectura del Sistema
+```
+┌─────────────────┐      HTTP/JSON      ┌──────────────────┐
+│   Frontend      │ ◄─────────────────► │    Backend       │
+│   React 18      │                     │   Flask/Python   │
+│   Port: 3000    │                     │   Port: 5000     │
+└─────────────────┘                     └──────────────────┘
+                                                │
+                                                ▼
+                                        ┌──────────────────┐
+                                        │   Base de Datos  │
+                                        │     SQLite       │
+                                        └──────────────────┘
+```
+
+### Funcionalidades Completas
+
+#### Iteración 1 - MVP
+1. **Autenticación de Usuarios**
+   - Registro con validaciones
+   - Login con JWT tokens
+   - Manejo de sesiones
+
+2. **Gestión Básica de Tareas**
+   - Crear tareas (título, descripción, prioridad)
+   - Listar tareas del usuario
+   - Marcar como completadas
+
+#### Iteración 2 - Mejoras
+1. **CRUD Completo**
+   - Editar tareas existentes
+   - Eliminar tareas con confirmación
+   - Filtros por estado
+
+2. **Interfaz Mejorada**
+   - Dashboard con estadísticas
+   - Diseño responsive
+   - Estados de carga y error
+
+### Tecnologías por Capa
+
+#### Frontend
+- **React 18.2.0** - Framework principal
+- **React Router 6** - Navegación SPA
+- **Axios** - Cliente HTTP
+- **CSS3** - Estilos personalizados
+- **Testing Library** - Pruebas
+
+#### Backend
+- **Flask 2.3.3** - Framework web
+- **SQLAlchemy** - ORM
+- **PyJWT** - Autenticación
+- **Flask-CORS** - CORS support
+- **SQLite** - Base de datos
+
+### API Endpoints
+
+#### Autenticación
+- `POST /api/register` - Registro de usuario
+- `POST /api/login` - Inicio de sesión
+
+#### Tareas (requieren autenticación)
+- `GET /api/tasks` - Listar tareas
+- `POST /api/tasks` - Crear tarea
+- `PUT /api/tasks/<id>` - Actualizar tarea
+- `DELETE /api/tasks/<id>` - Eliminar tarea
+
+### Base de Datos
+
+#### Modelo Usuario
+```sql
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY,
+    username VARCHAR(80) UNIQUE NOT NULL,
+    email VARCHAR(120) UNIQUE NOT NULL,
+    password_hash VARCHAR(120) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### Modelo Tarea
+```sql
+CREATE TABLE task (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    completed BOOLEAN DEFAULT FALSE,
+    priority VARCHAR(20) DEFAULT 'medium',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    user_id INTEGER REFERENCES user(id)
+);
+```
+
+### Evidencias de XP
+
+#### Prácticas Implementadas
+- ✅ **Planning Game**: Historias de usuario claras
+- ✅ **Small Releases**: 2 iteraciones funcionales
+- ✅ **Simple Design**: Arquitectura directa
+- ✅ **Test-Driven Development**: Prueb
