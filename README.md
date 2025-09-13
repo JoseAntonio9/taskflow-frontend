@@ -15,7 +15,7 @@ Frontend robusto y moderno para la aplicación **TaskFlow**, un gestor de tareas
 5.  [**Ejecución de Pruebas**](#-ejecución-de-pruebas)
 6.  [**Decisiones de Arquitectura y Diseño**](#-decisiones-de-arquitectura-y-diseño)
 7.  [**metodologia-xp-en-accion Metodología XP en Acción**](#-metodología-xp-en-acción)
-8.  [**Despliegue con Docker**] (#-despliegue-con-docker)
+8.  [**Despliegue con Docker**](#-despliegue-con-docker)
 9.  [**Equipo de Desarrollo**](#-equipo-de-desarrollo)
 
 ---
