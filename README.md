@@ -1,6 +1,6 @@
 # TaskFlow - Frontend con React
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
 Frontend robusto y moderno para la aplicación **TaskFlow**, un gestor de tareas personal. Esta interfaz de usuario ha sido desarrollada siguiendo rigurosamente la metodología de **Programación Extrema (XP)**, enfocándose en la entrega de valor, la calidad del código y la colaboración continua.
 
@@ -148,11 +148,52 @@ Este proyecto es el resultado de la aplicación de las prácticas de Programaci�
 
 ---
 
+## Despliegue con Docker
+
+Para facilitar el despliegue y asegurar un entorno de ejecución consistente, el proyecto ha sido completamente "dockerizado". Esto permite levantar toda la aplicación (frontend y backend) con un solo comando.
+
+### **Prerrequisitos**
+
+*   Docker y Docker Compose instalados en tu sistema.
+*   Haber clonado tanto el repositorio del frontend como el del backend en la misma carpeta contenedora. La estructura esperada es:
+    ```
+    proyecto-raiz/
+    ├── taskflow-frontend/  <-- Te encuentras aquí
+    └── taskflow-backend/
+    ```
+
+### **Pasos para la Ejecución**
+
+1.  **Navegar a la raíz del proyecto frontend:**
+    Asegúrate de estar en el directorio `taskflow-frontend` donde se encuentra el archivo `docker-compose.yml`.
+
+2.  **Construir y levantar los contenedores:**
+    Este comando construirá las imágenes para el frontend y el backend (si no existen) y luego iniciará los contenedores en segundo plano (`-d`).
+    ```bash
+    docker-compose up --build -d
+    ```
+
+3.  **Acceder a la aplicación:**
+    Una vez que los contenedores estén en funcionamiento, la aplicación estará disponible en tu navegador en la siguiente dirección:
+    *   **Frontend:** [**http://localhost:8080**](http://localhost:8080)
+
+4.  **Detener los contenedores:**
+    Para detener la aplicación, ejecuta el siguiente comando desde el mismo directorio:
+    ```bash
+    docker-compose down
+    ```
+
+### **Imágenes en GitHub Container Registry (GHCR)**
+
+Como parte de nuestro flujo de Integración Continua, las imágenes de Docker para este proyecto se construyen y publican automáticamente en el [GitHub Container Registry].
+
+-----
 ## Equipo de Desarrollo
 
 *   José Antonio García Hernández
 *   José David Aguilar Uribe
 *   José Manuel Evangelista Tiburcio
+*   Yair Uriel Correa Trejo
 
 ---
 
