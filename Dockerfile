@@ -18,17 +18,33 @@ RUN npm run build
 
 # ----- Etapa 2: Production -----
 # Usamos una imagen ligera de Nginx para servir los archivos estáticos
-FROM nginx:stable-alpine
+FROM node:18-alpine AS runtime
 
-# Copiamos los artefactos de compilación de la etapa anterior
-# La salida de 'npm run build' de Create React App está en la carpeta /app/build
-COPY --from=builder /app/build /usr/share/nginx/html
+WORKDIR /app
 
-# Copiamos una configuración personalizada de Nginx para manejar el enrutamiento de React
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Instalar Supervisor
+RUN apk add --no-cache supervisor
 
-# Exponemos el puerto 80 para que Nginx pueda recibir tráfico
+# Crear usuario no-root
+RUN addgroup appuser && adduser -D -G appuser appuser
+
+# Crear carpetas para logs de Supervisor y la build
+RUN mkdir -p /app/supervisor /app/dist && chown -R appuser:appuser /app/supervisor /app/dist /app
+
+# Instalar PM2 globalmente
+RUN npm install -g pm2
+
+# Copiar build de frontend
+COPY --from=builder /app/build /app/build
+
+# Copiar configuración de Supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Cambiar a usuario no-root
+USER appuser
+
+# Exponer puerto de la SPA
 EXPOSE 80
 
-# El comando por defecto de la imagen de Nginx ya inicia el servidor,
-# por lo que no necesitamos un CMD explícito.
+# Comando para iniciar Supervisor
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
